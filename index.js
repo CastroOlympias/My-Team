@@ -9,12 +9,12 @@ const promptUser = () => {
         {
             type: 'input',
             name: 'name',
-            message: "What is the team Manager's name (Required)",
+            message: "What is the Team Manager's name (Required)",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please enter team Manager's name!");
+                    console.log("Please enter Team Manager's name!");
                     return false;
                 }
             }
@@ -22,12 +22,12 @@ const promptUser = () => {
         {
             type: 'input',
             name: 'id',
-            message: "What is the team Manager's id (Required)",
+            message: "What is the Team Manager's id (Required)",
             validate: githubInput => {
                 if (githubInput) {
                     return true;
                 } else {
-                    console.log("Please enter the team Manager's id");
+                    console.log("Please enter the Team Manager's id");
                     return false;
                 }
             }
@@ -35,12 +35,12 @@ const promptUser = () => {
         {
             type: 'input',
             name: 'email',
-            message: "what is the team Manager's email: (Required)",
+            message: "what is the Team Manager's email: (Required)",
             validate: emailInput => {
                 if (emailInput) {
                     return true;
                 } else {
-                    console.log("Please enter team Manager's email!");
+                    console.log("Please enter Team Manager's email!");
                     return false;
                 }
             }
@@ -50,12 +50,12 @@ const promptUser = () => {
         {
             type: 'input',
             name: 'officeNumber',
-            message: "what is the team Manager's office number? (Required)",
+            message: "what is the Team Manager's office number? (Required)",
             validate: emailInput => {
                 if (emailInput) {
                     return true;
                 } else {
-                    console.log("Please enter team Manager's office number!");
+                    console.log("Please enter Team Manager's office number!");
                     return false;
                 }
             }
@@ -64,7 +64,7 @@ const promptUser = () => {
         {
             type: 'confirm',
             name: 'confirmMember',
-            message: 'Would you like to add another Member to the team?',
+            message: 'Would you like to add another Member to the Team?',
             default: false
         },
         {
@@ -80,9 +80,9 @@ const promptUser = () => {
 
 const promptProject = (portfolioData) => {
     console.log(`
-=================
-Add a New Project
-=================
+=====================
+Add a New Team Member
+=====================
 `);
 
     // If there's no 'projects' array property, create one
@@ -94,60 +94,71 @@ Add a New Project
         {
             type: 'input',
             name: 'name',
-            message: 'What is the name of your project? (Required)',
+            message: "What is the Team Member's name (Required)",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('Please enter your project user name!');
+                    console.log("Please enter the Team Member's name!");
                     return false;
                 }
             }
         },
         {
             type: 'input',
-            name: 'description',
-            message: 'Provide a description of the project (Required)',
-            validate: descriptionInput => {
-                if (descriptionInput) {
+            name: 'id',
+            message: "What is the Team Memember's id (Required)",
+            validate: githubInput => {
+                if (githubInput) {
                     return true;
                 } else {
-                    console.log('Please enter a description for your project (Required)');
+                    console.log("Please enter the Team Member's id");
                     return false;
                 }
             }
-        },
-        {
-            type: 'checkbox',
-            name: 'languages',
-            message: 'What did you build this project with? (Check all that apply)',
-            choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
         },
         {
             type: 'input',
-            name: 'link',
-            message: 'Enter the GitHub link to your project. (Required)',
-            validate: linkInput => {
-                if (linkInput) {
+            name: 'email',
+            message: "what is the Team Member's email: (Required)",
+            validate: emailInput => {
+                if (emailInput) {
                     return true;
                 } else {
-                    console.log('Please enter a link to your GitHub project');
+                    console.log("Please enter Team Member's email!");
                     return false;
                 }
             }
+
+        },
+
+        {
+            type: 'input',
+            name: 'github',
+            message: "what is the Team Memmbers GitHub name? (Required)",
+            validate: githubInput => {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log("Please enter Team Mmember's GitHub name!");
+                    return false;
+                }
+            }
+
         },
         {
             type: 'confirm',
-            name: 'feature',
-            message: 'Would you like to feature this project?',
+            name: 'confirmMember',
+            message: 'Would you like to add another Member to the Team?',
             default: false
         },
         {
-            type: 'confirm',
-            name: 'confirmAddProject',
-            message: 'Would you like to enter another project?',
-            default: false
-        }
+            type: 'list',
+            name: 'member',
+            message: 'Please select a type of Memeber:',
+            choices: ['Engineer', 'Intern'],
+            when: ({ confirmMember }) => confirmMember
+        },
     ])
 
         .then(projectData => {
