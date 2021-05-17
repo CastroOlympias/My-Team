@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
-const Employee = require('./lib/employee')
+const generatePage = require('./src/page-template');
+const { writeFile, copyFile } = require('./utils/generate-site');
+
 
 // Questions for project Manager
 const promptUser = () => {
