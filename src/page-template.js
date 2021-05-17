@@ -14,17 +14,15 @@ const generateAbout = about => {
 
 const generateProjects = projectsArr => {
   return `
-    <section class="my-3" id="portfolio">
-    <h2 class="text-dark bg-primary p-2 display-inline-block">Work</h2>
-    <div class="flex-row justify-space-between">
+    <section>
+    <div class="padding name-title">
     ${projectsArr
       .filter(({ feature }) => feature)
       .map(({ name, description, languages, link }) => {
         return `
-        <div class="col-12 mb-2 bg-dark text-light p-3">
-          <h3 class="portfolio-item-title text-light">${name}</h3>
-          <h5 class="portfolio-languages">
-          Built With:
+          <h2${name}</h2>
+          <h3>Manager</h3>
+         
           ${languages.join(', ')}
           </h5>
           <p>${description}</p>
@@ -57,7 +55,7 @@ const generateProjects = projectsArr => {
 
 module.exports = templateData => {
   // destructure page data by section
-  const { projects, about, ...header } = templateData;
+  const { name, id, email, projects, about, ...header } = templateData;
 
   return `
   <!DOCTYPE html>
@@ -80,17 +78,17 @@ module.exports = templateData => {
   
           <section>
               <div class="padding name-title">
-                  <h2>John</h2>
+                  <h2>${name}</h2>
                   <h3>Manager</h3>
               </div>
   
               <div>
   
                   <div class="contact">
-  
+                        
                       <div class="card column is-12">
-                          <h3>ID: 1ddddddddddddddd</h3>
-                          <h3>ID: 1ddddddddddddddd</h3>
+                          <h3>ID:${id}</h3>
+                          <h3>ID:${email}</h3>
                           <h3>ID: 1ddddddddddddddd</h3>
 
                           ${generateAbout(about)}
