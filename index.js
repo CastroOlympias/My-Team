@@ -65,7 +65,7 @@ const promptUser = () => {
             type: 'confirm',
             name: 'confirmMember',
             message: 'Would you like to add another Member to the team?',
-            default: true
+            default: false
         },
         {
             type: 'list',
