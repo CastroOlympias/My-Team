@@ -4,39 +4,39 @@ const { writeFile, copyFile } = require('./utils/generate-site');
 
 
 // Questions for project Manager
-const promptManager = () => {
+const teamBuilder = () => {
     return inquirer.prompt([
         {
-            type: 'input',
-            name: 'name',
-            message: "What is the Office phone number (Required)",
-            validate: nameInput => {
-                if (nameInput) {
+            type: 'list',
+            name: 'buildTeam',
+            message: "Would you like to build a Team?",
+            choices: ['Yes', 'No'],
+            validate: teamBuilder => {
+                if (teamBuilder === 'Yes') {
                     return true;
                 } else {
-                    console.log("Please enter the Office phone number!");
-                    return false;
+                    return;
                 }
             }
         },
-        
+
     ])
+  
 };
 
 // Questions for project Manager
 const promptTeamMates = teamMemberData => {
     console.log(`
-  =====================
-  Add a New Team Member
-  =====================
-  `);
-  
+=====================
+Add a New Team Member
+=====================
+`);
+
     // If there's no 'projects' array property, create one
     if (!teamMemberData.projects) {
         teamMemberData.projects = [];
     }
-    return inquirer
-      .prompt([
+    return inquirer.prompt([
         {
             type: 'list',
             name: 'memberClass',
@@ -84,24 +84,43 @@ const promptTeamMates = teamMemberData => {
 
         },
         {
+            type: 'list',
+            name: 'otherType',
+            message: "Please select additional info for Member",
+            choices: ['Office number:', 'GitHub:', 'School:']
+        },
+        {
+            type: 'input',
+            name: 'otherInput',
+            message: "Please enter your office number, GitHub or School (Required)",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your office number, GitHub or School!");
+                    return false;
+                }
+            }
+        },
+        {
             type: 'confirm',
             name: 'confirmAddMember',
             message: "Would you like to add another Member to the Team?",
             default: false,
         },
-      ])
-  
+    ])
+
         .then(projectData => {
             teamMemberData.projects.push(projectData);
-          if (projectData.confirmAddMember) {
-            return promptTeamMates(teamMemberData);
-          } else {
-            return teamMemberData;
-          }
+            if (projectData.confirmAddMember) {
+                return promptTeamMates(teamMemberData);
+            } else {
+                return teamMemberData;
+            }
         });
-  };
+};
 
-promptManager()
+teamBuilder()
     .then(promptTeamMates)
     .then(teamData => {
         return generatePage(teamData);
