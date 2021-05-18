@@ -2,21 +2,7 @@ const generateProjects = projectsArr => {
   return `
     <section>
     <div class="padding name-title">
-    ${projectsArr
-      .filter(({ feature }) => feature)
-      .map(({ memberClass, name, id, email, otherType, otherInput }) => {
-        return `
-          <h2>${name}</h2>
-          <h3>${memberClass}</h3>
-    </div>
 
-
-
-    </div>
-
-        `;
-      })
-      .join('')}
 
     ${projectsArr
       .filter(({ feature }) => !feature)
@@ -27,6 +13,8 @@ const generateProjects = projectsArr => {
         <div class="contact">
 
             <div class="card column is-12">
+            <h2>${name}</h2>
+          <h3>${memberClass}</h3>
                 <h3>ID:${id}</h3>
                 <h3>Email:${email}</h3>
                 <h3>${otherType} ${otherInput}</h3>
@@ -68,9 +56,7 @@ module.exports = templateData => {
   
           <section>
               <div class="padding name-title">
-              <h2>${name}</h2>
-              <h3>${memberClass}</h3>
-              </div>
+
               
         
               ${generateProjects(projects)}

@@ -6,6 +6,19 @@ const { writeFile, copyFile } = require('./utils/generate-site');
 // Questions for project Manager
 const teamBuilder = () => {
     return inquirer.prompt([
+
+    ])
+};
+
+// Questions for project Manager
+const promptTeamMates = teamMemberData => {
+
+
+    // If there's no 'projects' array property, create one
+    if (!teamMemberData.projects) {
+        teamMemberData.projects = [];
+    }
+    return inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -25,19 +38,6 @@ const teamBuilder = () => {
             message: "What is the Team Member's Class (Required)",
             choices: ['Manager', 'Supervisor', 'Engineer', 'Inter']
         },
-    ])
-};
-
-// Questions for project Manager
-const promptTeamMates = teamMemberData => {
-
-
-    // If there's no 'projects' array property, create one
-    if (!teamMemberData.projects) {
-        teamMemberData.projects = [];
-    }
-    return inquirer.prompt([
-
         {
             type: 'input',
             name: 'id',
