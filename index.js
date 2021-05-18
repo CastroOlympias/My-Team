@@ -7,43 +7,6 @@ const { writeFile, copyFile } = require('./utils/generate-site');
 const teamBuilder = () => {
     return inquirer.prompt([
         {
-            type: 'list',
-            name: 'buildTeam',
-            message: "Would you like to build a Team?",
-            choices: ['Yes', 'No'],
-            validate: teamBuilder => {
-                if (teamBuilder === 'Yes') {
-                    return true;
-                } else {
-                    return;
-                }
-            }
-        },
-
-    ])
-  
-};
-
-// Questions for project Manager
-const promptTeamMates = teamMemberData => {
-    console.log(`
-=====================
-Add a New Team Member
-=====================
-`);
-
-    // If there's no 'projects' array property, create one
-    if (!teamMemberData.projects) {
-        teamMemberData.projects = [];
-    }
-    return inquirer.prompt([
-        {
-            type: 'list',
-            name: 'memberClass',
-            message: "What is the Team Member's Class (Required)",
-            choices: ['Manager', 'Supervisor', 'Engineer', 'Inter']
-        },
-        {
             type: 'input',
             name: 'name',
             message: "What is the Team Member's name (Required)",
@@ -56,6 +19,25 @@ Add a New Team Member
                 }
             }
         },
+        {
+            type: 'list',
+            name: 'memberClass',
+            message: "What is the Team Member's Class (Required)",
+            choices: ['Manager', 'Supervisor', 'Engineer', 'Inter']
+        },
+    ])
+};
+
+// Questions for project Manager
+const promptTeamMates = teamMemberData => {
+
+
+    // If there's no 'projects' array property, create one
+    if (!teamMemberData.projects) {
+        teamMemberData.projects = [];
+    }
+    return inquirer.prompt([
+
         {
             type: 'input',
             name: 'id',
@@ -113,11 +95,18 @@ Add a New Team Member
         .then(projectData => {
             teamMemberData.projects.push(projectData);
             if (projectData.confirmAddMember) {
+                console.log(`
+========================
+Adding a new Team Member
+========================
+`);
                 return promptTeamMates(teamMemberData);
             } else {
                 return teamMemberData;
             }
         });
+
+
 };
 
 teamBuilder()
