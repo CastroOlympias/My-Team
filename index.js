@@ -4,93 +4,45 @@ const { writeFile, copyFile } = require('./utils/generate-site');
 
 
 // Questions for project Manager
-const promptUser = () => {
+const promptManager = () => {
     return inquirer.prompt([
         {
             type: 'input',
             name: 'name',
-            message: "What is the Team Manager's name (Required)",
+            message: "What is the Office phone number (Required)",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please enter Team Manager's name!");
+                    console.log("Please enter the Office phone number!");
                     return false;
                 }
             }
         },
-        {
-            type: 'input',
-            name: 'id',
-            message: "What is the Team Manager's id (Required)",
-            validate: githubInput => {
-                if (githubInput) {
-                    return true;
-                } else {
-                    console.log("Please enter the Team Manager's id");
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: "what is the Team Manager's email: (Required)",
-            validate: emailInput => {
-                if (emailInput) {
-                    return true;
-                } else {
-                    console.log("Please enter Team Manager's email!");
-                    return false;
-                }
-            }
-
-        },
-
-        {
-            type: 'input',
-            name: 'officeNumber',
-            message: "what is the Team Manager's office number? (Required)",
-            validate: emailInput => {
-                if (emailInput) {
-                    return true;
-                } else {
-                    console.log("Please enter Team Manager's office number!");
-                    return false;
-                }
-            }
-
-        },
-        {
-            type: 'confirm',
-            name: 'confirmMember',
-            message: 'Would you like to add another Member to the Team?',
-            default: false
-        },
-        {
-            type: 'list',
-            name: 'member',
-            message: 'Please select a type of Memeber:',
-            choices: ['Engineer', 'Intern'],
-            when: ({ confirmMember }) => confirmMember
-        }
-    ]);
+        
+    ])
 };
 
-
-const promptProject = (portfolioData) => {
+// Questions for project Manager
+const promptTeamMates = teamMemberData => {
     console.log(`
-=====================
-Add a New Team Member
-=====================
-`);
-
+  =====================
+  Add a New Team Member
+  =====================
+  `);
+  
     // If there's no 'projects' array property, create one
-    if (!portfolioData.projects) {
-        portfolioData.projects = [];
+    if (!teamMemberData.projects) {
+        teamMemberData.projects = [];
     }
-
-    return inquirer.prompt([
+    return inquirer
+      .prompt([
+        {
+            type: 'list',
+            name: 'memberClass',
+            message: "What is the Team Member's Class (Required)",
+            choices: ['Manager', 'Supervisor', 'Engineer', 'Inter']
+        },
         {
             type: 'input',
             name: 'name',
@@ -99,7 +51,7 @@ Add a New Team Member
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please enter the Team Member's name!");
+                    console.log("Please enter Team Member's name!");
                     return false;
                 }
             }
@@ -107,7 +59,7 @@ Add a New Team Member
         {
             type: 'input',
             name: 'id',
-            message: "What is the Team Memember's id (Required)",
+            message: "What is the Team Member's id (Required)",
             validate: githubInput => {
                 if (githubInput) {
                     return true;
@@ -131,50 +83,28 @@ Add a New Team Member
             }
 
         },
-
-        {
-            type: 'input',
-            name: 'github',
-            message: "what is the Team Memmbers GitHub name? (Required)",
-            validate: githubInput => {
-                if (githubInput) {
-                    return true;
-                } else {
-                    console.log("Please enter Team Mmember's GitHub name!");
-                    return false;
-                }
-            }
-
-        },
         {
             type: 'confirm',
-            name: 'confirmMember',
-            message: 'Would you like to add another Member to the Team?',
-            default: false
+            name: 'confirmAddMember',
+            message: "Would you like to add another Member to the Team?",
+            default: false,
         },
-        {
-            type: 'list',
-            name: 'member',
-            message: 'Please select a type of Memeber:',
-            choices: ['Engineer', 'Intern'],
-            when: ({ confirmMember }) => confirmMember
-        },
-    ])
-
+      ])
+  
         .then(projectData => {
-            portfolioData.projects.push(projectData);
-            if (projectData.confirmAddProject) {
-                return promptProject(portfolioData);
-            } else {
-                return portfolioData;
-            }
+            teamMemberData.projects.push(projectData);
+          if (projectData.confirmAddMember) {
+            return promptTeamMates(teamMemberData);
+          } else {
+            return teamMemberData;
+          }
         });
+  };
 
-};
-promptUser()
-    .then(promptProject)
-    .then(portfolioData => {
-        return generatePage(portfolioData);
+promptManager()
+    .then(promptTeamMates)
+    .then(teamData => {
+        return generatePage(teamData);
     })
     .then(pageHTML => {
         return writeFile(pageHTML);
