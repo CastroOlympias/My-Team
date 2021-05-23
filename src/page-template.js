@@ -16,7 +16,7 @@ const generateTeam = teamArr => {
                     <h4>ID:${id}</h4>
                 </div>
                 <div class="padding-small border-top-bottom">
-                    <h4>Email:${email}</h4>
+                    <h4>eMail:<a href="mailto:${email}">${email}</a></h4>
                 </div>
                 <div class="padding-small">
                     <h4>${otherType} ${otherInput}</h4>

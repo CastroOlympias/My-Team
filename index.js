@@ -6,7 +6,58 @@ const { writeFile, copyFile } = require('./utils/generate-site');
 // This prompt from html generator module is some how tied to this success of this app, I've done some testing with my tutor to get removed, but once it can run while being removed, it doesn't populate the whole team, it will only show the last asked for team member on the webpage
 const teamBuilder = () => {
     return inquirer.prompt([
-
+        // {
+        //     type: 'input',
+        //     name: 'mgrName',
+        //     message: "What is the Team Manager's name (Required)",
+        //     validate: nameInput => {
+        //         if (nameInput) {
+        //             return true;
+        //         } else {
+        //             console.log("Please enter Team Managers's name!");
+        //             return false;
+        //         }
+        //     }
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'mgrId',
+        //     message: "What is the Team Manager's ID (Required)",
+        //     validate: nameInput => {
+        //         if (nameInput) {
+        //             return true;
+        //         } else {
+        //             console.log("Please enter Team Managers's ID!");
+        //             return false;
+        //         }
+        //     }
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'mgrEmail',
+        //     message: "What is the Team Manager's eMail (Required)",
+        //     validate: nameInput => {
+        //         if (nameInput) {
+        //             return true;
+        //         } else {
+        //             console.log("Please enter Team Managers's eMail!");
+        //             return false;
+        //         }
+        //     }
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'mgrPhone',
+        //     message: "What is the Team Manager's office phone number (Required)",
+        //     validate: nameInput => {
+        //         if (nameInput) {
+        //             return true;
+        //         } else {
+        //             console.log("Please enter Team Managers's office phone number!");
+        //             return false;
+        //         }
+        //     }
+        // },
     ])
 };
 
