@@ -1,11 +1,10 @@
 const generateTeam = teamArr => {
-  return `
+    return `
 
     ${teamArr
-      .filter(({ teamMember }) => !teamMember)
-      .map(({ name, memberClass, id, email, otherType, otherInput }) => {
-        return `
-
+            .filter(({ teamMember }) => !teamMember)
+            .map(({ name, memberClass, id, email, otherType, otherInput }) => {
+                return `
         <div class="dynamic-column small-screen shadows padding-none">
         <div class="padding-small name-title">
             <h2>${name}</h2>
@@ -26,16 +25,16 @@ const generateTeam = teamArr => {
         </div>
     </div>
       `;
-      })
-      .join('')}
+            })
+            .join('')}
   `;
 };
 
 module.exports = templateData => {
-  // destructure page data by section
-  const { teams } = templateData;
+    // destructure page data by section
+    const { teams } = templateData;
 
-  return `
+    return `
   <!DOCTYPE html>
   <html lang="en">
   
@@ -55,7 +54,7 @@ module.exports = templateData => {
       <main>
           <section class="flex-direction-row">
 
-              ${generateTeam(teams)}
+            ${generateTeam(teams)}
 
           </section>
       </main>

@@ -3,7 +3,7 @@ const generatePage = require('./src/page-template');
 const { writeFile, copyFile } = require('./utils/generate-site');
 
 
-// Questions for project Manager
+// This prompt from html generator module is some how tied to this success of this app, I've done some testing with my tutor to get removed, but once it can run while being removed, it doesn't populate the whole team, it will only show the last asked for team member on the webpage
 const teamBuilder = () => {
     return inquirer.prompt([
 
@@ -36,7 +36,7 @@ const promptTeamMates = (teamMemberData) => {
             type: 'list',
             name: 'memberClass',
             message: "What is the Team Member's Class (Required)",
-            choices: ['Manager', 'Supervisor', 'Engineer', 'Inter']
+            choices: ['Manager', 'Supervisor', 'Engineer', 'Intern']
         },
         {
             type: 'input',
