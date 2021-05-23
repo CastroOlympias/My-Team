@@ -5,6 +5,70 @@
     font-family: Helvetica, Arial, sans-serif;
 }
 
+
+
+/* Start header and font styles */
+.header {
+    font-style: italic;
+    background: linear-gradient(70deg, black, darkgreen, lightgreen,red, black);
+    text-align: center;
+}
+
+.footer {
+    font-style: italic;
+    color: black;
+    text-align: center;
+}
+/* End header font styles */
+
+/* Start Team member card styles */
+.shadows {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 1.0);
+}
+
+.name-title {
+    background: #0077b6;
+}
+
+.smoke-white {
+    background-color: whitesmoke;
+    
+}
+
+.white {
+    background-color: white;
+}
+
+h1 {
+    font-size: 100px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 25px;
+    color: white
+}
+
+h3 {
+    font-size: 20px;
+    color: white
+}
+
+h4 {
+    color: black;
+    font-size: 15px;
+}
+
+.border {
+    border: 1px lightgrey solid;
+}
+
+.border-top-bottom {
+    border-top: 1px lightgrey solid;
+    border-bottom: 1px lightgrey solid;
+}
+/* End Team member card styles */
+
 /* Start Box behavior */
 .flex-direction-row{
     display: flex;
@@ -14,79 +78,37 @@
     margin-top: 30px;
 }
 
-.sticky {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
+.padding-none {
+    padding: 0;
+}
+
+.padding-small {
+    padding: 15px;
+}
+
+.padding-medium {
+    padding: 25px
+}
+
+.dynamic-column {
+    width: 300px;
+    margin: 15px;
 }
 /* End Box behavior */
 
-/* Start header font styles */
-.header {
-    font-style: italic;
-    background: linear-gradient(70deg, black, darkgreen, lightgreen,red, black);
-    text-align: center;
+/* Media queries for smaller screens */
+@media only screen and (max-width: 1006px) {
+    .small-screen {
+        box-sizing: content-box;
+        width: 45%;
+        margin-top: 25px;
+    }
 }
 
-section {
-    background-color: whitesmoke;
-    
+@media only screen and (max-width: 616px) {
+    .small-screen {
+        box-sizing: content-box;
+        width: 100%;
+        margin-top: 25px;
+    }
 }
-
-h1 {
-    font-size: 100px;
-    text-align: center;
-}
-
-.padding {
-    padding: 10px
-}
-
-.name-title {
-    background: rgb(110, 110, 224);
-}
-
-.card {
-    box-align: center;
-   
-    background-color: lightcoral;
-    
-}
-
-h2 {
-    font-size: 25px;
-    color: whitesmoke
-}
-
-h3 {
-    font-size: 20px;
-    color: whitesmoke
-}
-
-.contact {
- padding: 20px;
-}
-
-.font-color-one {
-    color: #fff;
-}
-/* End header font styles */
-
-/* Start box background design and colors */
-.background-color-primary {
-    background-color: #F7F7F2;
-}
-
-.rounded {
-    border-radius: 30px;
-}
-
-.rounded-top-seperator {
-    border-top: 3px black solid;
-    border-radius: 10px;
-}
-
-.shadows{
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 1.0);
-}
-/* End box background design and colors */

@@ -1,33 +1,33 @@
 const generateProjects = projectsArr => {
   return `
-    <section>
-    <div class="padding name-title">
-
 
     ${projectsArr
       .filter(({ feature }) => !feature)
       .map(({ memberClass, name, id, email, otherType, otherInput }) => {
         return `
-        <div>
 
-        <div class="contact">
-
-            <div class="card column is-12">
+        <div class="dynamic-column small-screen shadows padding-none">
+        <div class="padding-small name-title">
             <h2>${name}</h2>
-          <h3>${memberClass}</h3>
-                <h3>ID:${id}</h3>
-                <h3>Email:${email}</h3>
-                <h3>${otherType} ${otherInput}</h3>
-            </div>
-
+            <h3>${memberClass}</h3>
         </div>
-        
-        
+        <div class="smoke-white padding-medium">
+            <div class="white border">
+                <div class="padding-small">
+                    <h4>ID:${id}</h4>
+                </div>
+                <div class="padding-small border-top-bottom">
+                    <h4>Email:${email}</h4>
+                </div>
+                <div class="padding-small">
+                    <h4>${otherType} ${otherInput}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
       `;
       })
       .join('')}
-    </div>
-    </section>
   `;
 };
 
@@ -52,10 +52,10 @@ module.exports = templateData => {
       <header class="header">
           <h1>My Team</h1>
       </header>
-      <main class="flex-direction-row">
+      <main>
   
-          <section>
-              <div class="padding name-title">
+          <section class="flex-direction-row">
+              
 
               
         
@@ -66,12 +66,10 @@ module.exports = templateData => {
           </section>
   
       </main>
-      <footer class="container text-center py-3">
-          <h3 class="text-dark">&copy; ${new Date().getFullYear()} by David Crockett</h3>
-        </footer>
-  
+      <footer>
+      <h2 class="footer white">&copy; ${new Date().getFullYear()} by David Crockett</h2>
+  </footer>
   </body>
-  
   </html>
   `;
 };
