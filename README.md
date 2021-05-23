@@ -16,26 +16,26 @@
 
 
 ## Story
-  Coding is preyy cool and so learning what you can do basicly adds another tool to the tool box of apps and code.
+  Coding is pretty cool and so learning what you can do basically adds another tool to the tool box of apps and code.
 
 ## Installation
-  In your termianl run: npm init, npm install inquirer and mpm install --save-dev-jest for running npm test.
+  In your terminal run: npm init, npm install inquirer, and npm install --save-dev jest.
 
 ## Usage
-  in the command line, to run the test enter: npm test or to create your team enter: node index.js
+  in the command line, to run the test enter: npm test, or to create your team enter: node index.js.
 
 ## Authors
-  Just my self
+  Just myself.
 
 
 
 ## Resources
-  While I have a link to Bulma css frame work, I created a very simple, mobile freiendly css that I think spaces the grid better than bulma. effectively, you can have aninfinit column in the row and the flex as the view port changes.
+  While I have a link to Bulma css frame work, I created a very simple, mobile friendly css that I think spaces the grid better than Bulma, between each card, effectively, you can have infinite columns in the row, the cards for each team member is hard coded in size for larger screens, which prevents them from stretching which can get really weird; however. When screen size for mobile devices is a factor, the cards do have some stretching due to relative size via % of the view port. This makes for a better experience of all screen sizes.
 
 ## Testing
   just run: npm test to test the employee.js concept file.  
 
 ## Questions
-  CastroOlympias
-  blackcarrera@msn.com
-  I don't really have any at the moment, but please feel free to reach out.
+  https://github.com/CastroOlympias 
+  blackcarrera@msn.com 
+  I don’t have any other comments or questions at this time, but please feel free to reach out.
