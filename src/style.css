@@ -10,7 +10,7 @@
 /* Start header and font styles */
 .header {
     font-style: italic;
-    background: linear-gradient(70deg, black, darkgreen, lightgreen,red, black);
+    background: linear-gradient(70deg, black, brown, lightgreen,brown, black);
     text-align: center;
 }
 

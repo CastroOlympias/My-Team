@@ -1,9 +1,9 @@
-const generateProjects = projectsArr => {
+const generateTeam = teamArr => {
   return `
 
-    ${projectsArr
-      .filter(({ feature }) => !feature)
-      .map(({ memberClass, name, id, email, otherType, otherInput }) => {
+    ${teamArr
+      .filter(({ teamMember }) => !teamMember)
+      .map(({ name, memberClass, id, email, otherType, otherInput }) => {
         return `
 
         <div class="dynamic-column small-screen shadows padding-none">
@@ -33,7 +33,7 @@ const generateProjects = projectsArr => {
 
 module.exports = templateData => {
   // destructure page data by section
-  const { memberClass, name, id, email, otherType, otherInput, projects } = templateData;
+  const { teams } = templateData;
 
   return `
   <!DOCTYPE html>
@@ -53,18 +53,11 @@ module.exports = templateData => {
           <h1>My Team</h1>
       </header>
       <main>
-  
           <section class="flex-direction-row">
-              
 
-              
-        
-              ${generateProjects(projects)}
+              ${generateTeam(teams)}
 
-           
-  
           </section>
-  
       </main>
       <footer>
       <h2 class="footer white">&copy; ${new Date().getFullYear()} by David Crockett</h2>

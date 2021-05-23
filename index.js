@@ -11,12 +11,12 @@ const teamBuilder = () => {
 };
 
 // Questions for project Manager
-const promptTeamMates = teamMemberData => {
+const promptTeamMates = (teamMemberData) => {
 
 
-    // If there's no 'projects' array property, create one
-    if (!teamMemberData.projects) {
-        teamMemberData.projects = [];
+    // If there's no 'teams' array property, create one
+    if (!teamMemberData.teams) {
+        teamMemberData.teams = [];
     }
     return inquirer.prompt([
         {
@@ -93,7 +93,7 @@ const promptTeamMates = teamMemberData => {
     ])
 
         .then(projectData => {
-            teamMemberData.projects.push(projectData);
+            teamMemberData.teams.push(projectData);
             if (projectData.confirmAddMember) {
                 console.log(`
 ========================
