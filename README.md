@@ -5,7 +5,17 @@
 ## Description
   This app is a command line team builder app, which outputs an html file to dist folder. I copied the css style and index.html to the root so it could be viewed on git pages, but it can only be created through the command line.
 
-<img src="https://github.com/CastroOlympias/My-Team/blob/main/assets/media/Team%20Builder%20demo.gif"/>
+* Creating the team. Click <a src="./assets/media/create team mp4.mp4">here</a>
+
+<img src="./assets/media/create team gif.gif"/>
+
+* Links to team members phone number, Git Hub profile or search for their school
+
+<img src="./assets/media/team hyper links gif.gif"/>
+
+* Testing team profile data using jest
+
+<img src="./assets/media/test team member types gif.gif"/>
 
 ## Table of Contents
 - [Story](#Story)
