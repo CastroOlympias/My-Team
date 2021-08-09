@@ -5,7 +5,17 @@
 ## Description
   This app is a command line team builder app, which outputs an html file to dist folder. I copied the css style and index.html to the root so it could be viewed on git pages, but it can only be created through the command line.
 
-* Creating the team. Click <a src="./assets/media/create team mp4.mp4">here</a>
+* refactored code, not a whole lot needed. Through the response answer from enquirer, part of the anchor tag in the choice selection, is created, being added to the template html js file using template literals. The html template js file then finishes the anchor tag with the user input that completes the chain of the hyper link, in the first to screenshots.
+<br><br>
+* Recently I realized these graphic icons are just emojis so I added the emojis for employee type which then appears on the web application.
+
+
+<img src="./assets/media/code refactor for links of other types 1.png"/>
+<img src="./assets/media/code refactor for links of other types 2.png"/>
+<img src="./assets/media/code refactor for links of other types 3.png"/>
+
+
+* Creating the team. Click <a href="https://github.com/CastroOlympias/My-Team/blob/main/assets/media/create%20team%20mp4.mp4?raw=true">here</a>
 
 <img src="./assets/media/create team gif.gif"/>
 
