@@ -87,7 +87,7 @@ const promptTeamMates = (teamMemberData) => {
             type: 'list',
             name: 'memberClass',
             message: "What is the Team Member's Class (Required)",
-            choices: ['Manager', 'Supervisor', 'Engineer', 'Intern']
+            choices: ['☕ Manager', '👨‍💼 Supervisor', '👨🏻‍🔬 Engineer', '👨‍🎓 Intern']
         },
         {
             type: 'input',
@@ -120,7 +120,7 @@ const promptTeamMates = (teamMemberData) => {
             type: 'list',
             name: 'otherType',
             message: "Please select additional info for Member",
-            choices: ['Office number:', 'GitHub:', 'School:']
+            choices: ['Office number: <a href="tel:', 'GitHub user name: <a href="https://github.com/', 'School: <a href="https://www.google.com/search?q=']
         },
         {
             type: 'input',
